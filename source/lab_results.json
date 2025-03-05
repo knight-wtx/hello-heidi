@@ -1,0 +1,42 @@
+[
+  {
+    "lab_result_id": "L001",
+    "encounter_id": "E100",
+    "test_name": "CBC",
+    "result_value": 4.5,
+    "result_units": "10^3/uL",
+    "abnormal_flag": false
+  },
+  {
+    "lab_result_id": "L002",
+    "encounter_id": "E101",
+    "test_name": "Glucose",
+    "result_value": 200,
+    "result_units": "mg/dL",
+    "abnormal_flag": true
+  },
+  {
+    "lab_result_id": "L003",
+    "encounter_id": "E999",
+    "test_name": "Lipase",
+    "result_value": 300,
+    "result_units": "U/L",
+    "abnormal_flag": false
+  },
+  {
+    "lab_result_id": "L004",
+    "encounter_id": "E102",
+    "test_name": "CT Scan",
+    "result_value": 1,
+    "result_units": "findings",
+    "abnormal_flag": false
+  },
+  {
+    "lab_result_id": "L005",
+    "encounter_id": "E104",
+    "test_name": "BNP",
+    "result_value": 800,
+    "result_units": "pg/mL",
+    "abnormal_flag": true
+  }
+]

@@ -1,0 +1,6 @@
+[2025-03-02 09:00:00] user=DrAlice event="LOGIN"
+[2025-03-02 09:05:12] user=DrAlice event="VIEWED_PATIENT" patient_id="P001"
+[2025-03-03 10:00:00] user=NurseBob event="LOGIN"
+[2025-03-03 10:20:11] user=NurseBob event="UPDATED_ENCOUNTER" encounter_id="E100"
+[2025-03-04 08:15:00] user=DrEve event="LOGIN"
+[2025-03-04 08:18:00] user=DrEve event="VIEWED_PATIENT" patient_id="P003"
