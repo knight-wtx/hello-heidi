@@ -14,7 +14,7 @@ jobs:
   Task-Runner:
     runs-on: ubuntu-latest
     steps:
-      
+
     - name: Check out Code
       uses: actions/checkout@v4
       
@@ -23,6 +23,11 @@ jobs:
       with:
         python-version: "3.10"
         
-    - name: Run Code
+    - name: 1 - Load SQL Data
       run: |
-        python3 main.py
+        python3 1_load_sql_data.py
+        
+    - name: 2 - Load File Data
+      run: |
+        python3 2_load_file_data.py
+  

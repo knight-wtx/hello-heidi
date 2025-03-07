@@ -37,41 +37,26 @@ def parse_log(input_file_path):
       output.append(event_struct)
     return output
 
-def load_sqlite(db_name, table_name, data):
-  
-  db = sqlite3.connect("heidi.sqlite")
-  c = db.cursor()
-
 def main():
-  # appointments_data = parse_csv('source/appointments.csv')
+  appointments_data = parse_csv('source/appointments.csv')
   # print(appointments_data)
 
-  # lab_results_data = parse_json('source/lab_results.json')
+  lab_results_data = parse_json('source/lab_results.json')
   # print(lab_results_data)
 
-  # staff_activity_data = parse_log('source/staff_activity.log')
+  staff_activity_data = parse_log('source/staff_activity.log')
   # print(staff_activity_data)
   
 
-  with sqlite3.connect(":memory:") as db:
-
-    with open('source/sql/patients.sql', 'r') as file:
-      query = file.read().replace('\n', '')
-      db.executescript(query)
-
-    with open('source/sql/encounters.sql', 'r') as file:
-      query = file.read().replace('\n', '')
-      db.executescript(query)
-
-    with open('source/sql/diagnoses.sql', 'r') as file:
-      query = file.read().replace('\n', '')
-      db.executescript(query)
+  with sqlite3.connect("hello-heidi.sqlite") as db:
 
     data1 = db.execute('SELECT * FROM patients').fetchall()
-    data2 = db.execute('SELECT * FROM encounters').fetchall()
-    data3 = db.execute('SELECT * FROM diagnoses').fetchall()
     print(data1)
+
+    data2 = db.execute('SELECT * FROM encounters').fetchall()
     print(data2)
+    
+    data3 = db.execute('SELECT * FROM diagnoses').fetchall()
     print(data3)
 
 if __name__ == '__main__':
