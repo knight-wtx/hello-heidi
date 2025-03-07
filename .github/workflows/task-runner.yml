@@ -30,4 +30,9 @@ jobs:
     - name: 2 - Load File Data
       run: |
         python3 2_load_file_data.py
-  
+
+    - name: Upload Output SQLite DB
+      uses: actions/upload-artifact@v4
+      with:
+        name: hello-heidi
+        path: hello-heidi.sqlite
