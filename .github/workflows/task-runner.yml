@@ -26,6 +26,10 @@ jobs:
       run: |
         python3 1_load_data.py
         
+    - name: 2 - Calculate Metrics
+      run: |
+        python3 2_calculate_metrics.py
+        
     - name: Upload SQLite DB
       uses: actions/upload-artifact@v4
       with:
