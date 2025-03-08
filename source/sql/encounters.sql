@@ -5,7 +5,6 @@ CREATE TABLE encounters (
     , discharge_date TEXT
     , encounter_type TEXT
 );
-
 INSERT INTO encounters (
     encounter_id
     , patient_id 
@@ -13,7 +12,6 @@ INSERT INTO encounters (
     , discharge_date
     , encounter_type
 ) VALUES 
-
 ('E100', 'P001', '2025-02-25', '2025-02-27', 'inpatient'),
 ('E101', 'P002', '2025-02-21', NULL, 'inpatient'),
 ('E102', 'P002', '2025-03-01', '2025-03-02', 'ER'),

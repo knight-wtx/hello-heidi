@@ -4,14 +4,12 @@ CREATE TABLE diagnoses (
     , code TEXT
     , description TEXT
 );
-
 INSERT INTO diagnoses (
     diagnosis_id
     , encounter_id
     , code
     , description
 ) VALUES 
-
 ('D001', 'E100', 'I10', 'Hypertension'),
 ('D002', 'E100', 'E11', 'Type 2 Diabetes'),
 ('D003', 'E101', 'J20', 'Acute Bronchitis'),
