@@ -51,36 +51,44 @@ def generate_sql_from_list_of_dict(target_table_name, list_of_dict):
     return output
 
 def main():
+
+    with open('source/sql/patients.sql', 'r') as file:
+        sql_load_patients_data = file.read()
+
+    with open('source/sql/encounters.sql', 'r') as file:
+        sql_load_encounters_data = file.read()
+
+    with open('source/sql/diagnoses.sql', 'r') as file:
+        sql_load_diagnoses_data = file.read()
+
     appointments_data = parse_csv_to_list_of_dict('source/files/appointments.csv')
     sql_load_appointments_data = generate_sql_from_list_of_dict('appointments', appointments_data)
-    print(sql_load_appointments_data)
-
-    staff_activity_data = parse_log_to_list_of_dict('source/files/staff_activity.log')
-    sql_load_staff_activity_data = generate_sql_from_list_of_dict('staff_activities', staff_activity_data)
-    print(sql_load_staff_activity_data)
 
     lab_results_data = parse_json_to_list_of_dict('source/files/lab_results.json')
     sql_load_lab_results_data = generate_sql_from_list_of_dict('lab_results', lab_results_data)
-    print(sql_load_lab_results_data)
+
+    staff_activity_data = parse_log_to_list_of_dict('source/files/staff_activity.log')
+    sql_load_staff_activity_data = generate_sql_from_list_of_dict('staff_activities', staff_activity_data)
 
     with sqlite3.connect("hello-heidi.sqlite") as db:
+        print('Loading patients data:\n')
+        print(f'{sql_load_patients_data}\n')
+        db.executescript(sql_load_patients_data)
+        print('Loading encounters data:\n')
+        print(f'{sql_load_encounters_data}\n')
+        db.executescript(sql_load_encounters_data)
+        print('Loading diagnoses data:\n')
+        print(f'{sql_load_diagnoses_data}\n')
+        db.executescript(sql_load_diagnoses_data)
+        print('Loading appointments data:\n')
+        print(f'{sql_load_appointments_data}\n')
         db.executescript(sql_load_appointments_data)
+        print('Loading staff activity data:\n')
+        print(f'{sql_load_staff_activity_data}\n')
         db.executescript(sql_load_staff_activity_data)
+        print('Loading lab results data:\n')
+        print(f'{sql_load_lab_results_data}\n')
         db.executescript(sql_load_lab_results_data)
-
-    with sqlite3.connect("hello-heidi.sqlite") as db:
-
-        with open('source/sql/patients.sql', 'r') as file:
-            query = file.read()
-            db.executescript(query)
-
-        with open('source/sql/encounters.sql', 'r') as file:
-            query = file.read()
-            db.executescript(query)
-
-        with open('source/sql/diagnoses.sql', 'r') as file:
-            query = file.read()
-            db.executescript(query)
 
 if __name__ == '__main__':
     main()
