@@ -52,25 +52,25 @@ def generate_sql_from_list_of_dict(target_table_name, list_of_dict):
 
 def main():
 
-    with open('source/sql/patients.sql', 'r') as file:
+    with open('data/sql/patients.sql', 'r') as file:
         sql_load_patients_data = file.read()
 
-    with open('source/sql/encounters.sql', 'r') as file:
+    with open('data/sql/encounters.sql', 'r') as file:
         sql_load_encounters_data = file.read()
 
-    with open('source/sql/diagnoses.sql', 'r') as file:
+    with open('data/sql/diagnoses.sql', 'r') as file:
         sql_load_diagnoses_data = file.read()
 
-    appointments_data = parse_csv_to_list_of_dict('source/files/appointments.csv')
+    appointments_data = parse_csv_to_list_of_dict('data/files/appointments.csv')
     sql_load_appointments_data = generate_sql_from_list_of_dict('appointments', appointments_data)
 
-    lab_results_data = parse_json_to_list_of_dict('source/files/lab_results.json')
+    lab_results_data = parse_json_to_list_of_dict('data/files/lab_results.json')
     sql_load_lab_results_data = generate_sql_from_list_of_dict('lab_results', lab_results_data)
 
-    staff_activity_data = parse_log_to_list_of_dict('source/files/staff_activity.log')
+    staff_activity_data = parse_log_to_list_of_dict('data/files/staff_activity.log')
     sql_load_staff_activity_data = generate_sql_from_list_of_dict('staff_activities', staff_activity_data)
 
-    with sqlite3.connect("hello-heidi.sqlite") as db:
+    with sqlite3.connect("staging.sqlite") as db:
         db.executescript(sql_load_patients_data)
         db.executescript(sql_load_encounters_data)
         db.executescript(sql_load_diagnoses_data)
