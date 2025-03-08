@@ -71,23 +71,11 @@ def main():
     sql_load_staff_activity_data = generate_sql_from_list_of_dict('staff_activities', staff_activity_data)
 
     with sqlite3.connect("hello-heidi.sqlite") as db:
-        print('Loading patients data:\n')
-        print(f'{sql_load_patients_data}\n')
         db.executescript(sql_load_patients_data)
-        print('Loading encounters data:\n')
-        print(f'{sql_load_encounters_data}\n')
         db.executescript(sql_load_encounters_data)
-        print('Loading diagnoses data:\n')
-        print(f'{sql_load_diagnoses_data}\n')
         db.executescript(sql_load_diagnoses_data)
-        print('Loading appointments data:\n')
-        print(f'{sql_load_appointments_data}\n')
         db.executescript(sql_load_appointments_data)
-        print('Loading staff activity data:\n')
-        print(f'{sql_load_staff_activity_data}\n')
         db.executescript(sql_load_staff_activity_data)
-        print('Loading lab results data:\n')
-        print(f'{sql_load_lab_results_data}\n')
         db.executescript(sql_load_lab_results_data)
 
 if __name__ == '__main__':
