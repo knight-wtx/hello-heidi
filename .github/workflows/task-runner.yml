@@ -1,5 +1,5 @@
 
-name: Project Deliverables
+name: Deliverables
 
 on:
   push:
@@ -30,4 +30,5 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: hello-heidi
-        path: hello-heidi.sqlite
+        path: |
+          *.sqlite
