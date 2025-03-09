@@ -15,4 +15,5 @@ FROM (
 )
 GROUP BY freq
 ORDER BY 3 DESC
-LIMIT 3;
+LIMIT 3
+;
