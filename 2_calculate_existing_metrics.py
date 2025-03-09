@@ -16,12 +16,12 @@ def main():
     with open('metrics/4_abnormal_lab_results_pct.sql', 'r') as file:
         sql_calcualte_abnormal_lab_results_pct = file.read()
 
-    with sqlite3.connect("staging.sqlite") as db:
+    with sqlite3.connect("hello-heidi.sqlite") as db:
         
-        print('[1. Calculating Inpatient Average Length of Stay]:\n')
+        print('[1. Calculating Average Length of Stay]:\n')
         print(f'{sql_calcualte_average_length_of_stay}\n')
         average_length_of_stay =  db.execute(sql_calcualte_average_length_of_stay).fetchall()
-        print(f'Inpatient Average Length of Stay: {round(average_length_of_stay[0][0], 2)} days.\n')
+        print(f'Average Length of Stay: {round(average_length_of_stay[0][0], 2)} days.\n')
 
         print('[2. Calculating Top 3 Diagnoses]:\n')
         print(f'{sql_calcualte_top_3_diagnoses}\n')
@@ -34,7 +34,7 @@ def main():
         print(f'{sql_calcualte_appointments_completion_rate}\n')
         appointments_completion_rate =  db.execute(sql_calcualte_appointments_completion_rate).fetchall()
         print(f'Appointments Completion Rate: {appointments_completion_rate[0][0]} in {appointments_completion_rate[0][1]}'
-            , f'({round(appointments_completion_rate[0][0]/appointments_completion_rate[0][1],1)}%).\n')
+            , f'({round(appointments_completion_rate[0][0]/appointments_completion_rate[0][1],1)}).\n')
 
         
         print('[4. Calculating Abnormal Lab Results Percentage]:\n')

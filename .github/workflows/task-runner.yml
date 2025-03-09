@@ -38,5 +38,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: hello-heidi
-        path: |
-          *.sqlite
+        path: hello-heidi.sqlite

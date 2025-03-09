@@ -70,7 +70,7 @@ def main():
     staff_activity_data = parse_log_to_list_of_dict('data/files/staff_activity.log')
     sql_load_staff_activity_data = generate_sql_from_list_of_dict('staff_activities', staff_activity_data)
 
-    with sqlite3.connect("staging.sqlite") as db:
+    with sqlite3.connect("hello-heidi.sqlite") as db:
 
         print('Loading patients data:\n')
         print(f'{sql_load_patients_data}\n')

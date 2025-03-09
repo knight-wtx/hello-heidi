@@ -10,7 +10,7 @@ def main():
     with open('metrics/6_registration_rate.sql', 'r') as file:
         sql_calcualte_registration_rate = file.read()
 
-    with sqlite3.connect("staging.sqlite") as db:
+    with sqlite3.connect("hello-heidi.sqlite") as db:
                 
         print('[5. Calculating Orphan Records Rate]:\n')
         print(f'{sql_calcualte_orphan_records_rate}\n')
