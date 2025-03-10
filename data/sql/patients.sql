@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS patients;
 CREATE TABLE patients (
     patient_id TEXT
     , name TEXT

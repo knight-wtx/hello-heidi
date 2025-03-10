@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS diagnoses;
 CREATE TABLE diagnoses (
     diagnosis_id TEXT
     , encounter_id TEXT

@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS encounters;
 CREATE TABLE encounters (
     encounter_id TEXT
     , patient_id TEXT

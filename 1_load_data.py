@@ -38,7 +38,8 @@ def parse_log_to_list_of_dict(input_file_path):
         return output
 
 def generate_sql_from_list_of_dict(target_table_name, list_of_dict):
-    sql_create = f'CREATE TABLE {target_table_name} AS\n'
+    sql_drop = f'DROP TABLE IF EXISTS {target_table_name};\n'
+    sql_ctas = f'CREATE TABLE {target_table_name} AS\n'
     sql_select_all = []
     for d in list_of_dict:
         sql_select_one = []
@@ -47,7 +48,7 @@ def generate_sql_from_list_of_dict(target_table_name, list_of_dict):
             sql_select_one.append(f"'{value}' AS {key}")
         sql_select = 'SELECT ' + ', '.join(sql_select_one)
         sql_select_all.append(sql_select)
-    output = sql_create + ' UNION ALL\n'.join(sql_select_all) + ';'
+    output = sql_drop + sql_ctas + ' UNION ALL\n'.join(sql_select_all) + ';'
     return output
 
 def main():
