@@ -1,0 +1,6 @@
+appointment_id,patient_id,appointment_date,clinic_department,status
+A100,P001,2025-03-02,Cardiology,completed
+A101,P002,2025-03-03,Orthopedics,canceled
+A102,P002,2025-03-03,Orthopedics,completed
+A103,P003,2025-03-04,General Medicine,completed
+A104,P999,2025-03-05,Neurology,completed

@@ -1,0 +1,41 @@
+
+name: Deliverables
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+    
+permissions:
+  contents: read
+
+jobs:  
+  Task-Runner:
+    runs-on: ubuntu-22.04
+    steps:
+
+    - name: Check out Code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+        
+    - name: 1 - Load Data
+      run: |
+        python3 1_load_data.py
+        
+    - name: 2 - Calculate Existing Metrics
+      run: |
+        python3 2_calculate_existing_metrics.py
+        
+    - name: 3 - Calculate Additional Metrics
+      run: |
+        python3 3_calculate_additional_metrics.py
+        
+    - name: Upload SQLite DB
+      uses: actions/upload-artifact@v4
+      with:
+        name: hello-heidi
+        path: hello-heidi.sqlite
